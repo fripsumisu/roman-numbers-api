@@ -12,6 +12,13 @@ Clone, CD to the project root with the pom.xml and simply run ```mvn verify``` t
 The application uses the Spring-Maven plugin.
 Launch the application via _maven_ or via your IDE, and once Spring Boot has launched point your browser, or _curl_ to http://127.0.0.1:8080/roman/ adding the standard Arabic number you which to convert to Roman numeral format.
 ```shell
+# Valid number parameter in path
 $ curl http://127.0.0.1:8080/roman/2026
-{"arabicNumber":2026,"romanNumber":"MMXXVI"}
+# {"arabicNumber":2026,"romanNumber":"MMXXVI"}
+```
+```shell
+# Currently API only supports numbers between 1 and 9,999
+$ curl http://127.0.0.1:8080/roman/10000
+# {"message":"Number must be between 1 and 9999","error":"Bad Request"}
+
 ```
